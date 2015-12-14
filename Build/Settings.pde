@@ -134,4 +134,21 @@ ffmpeg -y -i file.mp4 -vcodec prores -vb 6M -r 30 -s 1920x1080 -f mov file.mov
 
 # here’s another example conversion command. this one has a much higher bitrate
 ffmpeg -y -i file_01.mp4 -b:v 40M -vcodec libx264 -pass 1 file_02.mp4
+
+
+# Write a bash script using the following commands.
+
+# 1080 Export
+*******************************************************************************
+ffmpeg -y -i "ProjectName.%06d.png" -vcodec libx264 -r 30 -q 100 -pass 1 -s 1920x1080 -vb 16M -threads 0 -f mp4 ProjectName.1080p.mp4
+
+ffmpeg -y -i ProjectName.1080p.mp4 -vcodec prores -vb 16M -r 30 -s 1920x1080 -f mov ProjectName.1080p.mov
+
+# 4K Export
+*******************************************************************************
+ffmpeg -y -i "ProjectName.%06d.png" -vcodec libx264 -r 30 -q 100 -pass 1 -s 3840x2160 -vb 32M -threads 0 -f mp4 ProjectName.4k.mp4
+
+ffmpeg -y -i ProjectName.4k.mp4 -vcodec prores -vb 32M -r 30 -s 3840x2160 -f mov ProjectName.4k.mov
+
+
 */
